@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Misaf\VendraTagger\Tests;
 
 use Illuminate\Support\Facades\Http;
-use Misaf\VendraTagger\TaggerServiceProvider;
+use Misaf\VendraTagger\Providers\TaggerServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Override;
 

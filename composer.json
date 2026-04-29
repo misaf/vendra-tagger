@@ -65,7 +65,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Misaf\\VendraTagger\\TaggerServiceProvider"
+        "Misaf\\VendraTagger\\Providers\\TaggerServiceProvider"
       ]
     }
   },
