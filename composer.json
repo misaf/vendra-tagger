@@ -28,6 +28,7 @@
 		"filament/filament": "^5.0",
 		"filament/spatie-laravel-tags-plugin": "^5.0",
 		"illuminate/support": "^12.0 || ^13.0",
+		"misaf/vendra-support": "dev-master",
 		"lara-zeus/spatie-translatable": "^2.0",
 		"misaf/vendra-tenant": "dev-master",
 		"misaf/vendra-user": "dev-master",
@@ -63,6 +64,8 @@
 	"autoload": {
 		"psr-4": {
 			"Misaf\\VendraTagger\\": "src/",
+            "Misaf\\VendraTagger\\Database\\Factories\\": "database/factories/",
+            "Misaf\\VendraTagger\\Database\\Seeders\\": "database/seeders/",
 			"Misaf\\VendraTagger\\Tests\\": "tests/"
 		}
 	},
