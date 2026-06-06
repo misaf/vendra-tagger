@@ -9,9 +9,11 @@ use Filament\Panel;
 
 final class TaggerPlugin implements Plugin
 {
+    public const string ID = 'vendra-tagger';
+
     public function getId(): string
     {
-        return 'vendra-tagger';
+        return self::ID;
     }
 
     public static function make(): static
