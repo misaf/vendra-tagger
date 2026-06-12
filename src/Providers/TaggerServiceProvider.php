@@ -6,6 +6,7 @@ namespace Misaf\VendraTagger\Providers;
 
 use Filament\Panel;
 use Illuminate\Foundation\Console\AboutCommand;
+use Misaf\VendraTagger\Console\Commands\SeedCommand;
 use Misaf\VendraTagger\TaggerPlugin;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -23,6 +24,7 @@ final class TaggerServiceProvider extends PackageServiceProvider
                 'rename_order_column_to_position_on_tags_table',
                 'add_index_to_tags_position_column'
             ])
+            ->hasCommands(SeedCommand::class)
             ->hasInstallCommand(function (InstallCommand $command): void {
                 $command->askToStarRepoOnGitHub('misaf/vendra-activity-log');
             });
