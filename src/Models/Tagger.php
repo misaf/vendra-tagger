@@ -9,8 +9,6 @@ use Misaf\VendraTenant\Traits\BelongsToTenant;
 use Spatie\Tags\Tag as SpatieTag;
 
 /**
- * Misaf\VendraTagger\Models\Tagger.
- *
  * @property int $tenant_id
  */
 #[Hidden(['tenant_id'])]
