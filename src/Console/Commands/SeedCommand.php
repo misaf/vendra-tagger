@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Misaf\VendraTagger\Console\Commands;
 
-use Misaf\VendraSupport\Console\Commands\BaseSeedCommand;
 use Misaf\VendraTagger\Database\Seeders\PermissionPolicySeeder;
 use Misaf\VendraTagger\TaggerPlugin;
+use Misaf\VendraTenant\Console\Commands\TenantSeedCommand;
 
-final class SeedCommand extends BaseSeedCommand
+final class SeedCommand extends TenantSeedCommand
 {
     protected const string MODULE_NAME = TaggerPlugin::ID;
 

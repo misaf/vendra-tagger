@@ -7,10 +7,20 @@ namespace Misaf\VendraTagger\Database\Seeders;
 use Misaf\VendraSupport\Database\Seeders\PermissionPolicySeeder as BasePermissionPolicySeeder;
 use Misaf\VendraTagger\Enums\TaggerPolicyEnum;
 use Misaf\VendraTagger\TaggerPlugin;
+use Misaf\VendraTenant\Concerns\RequiresCurrentTenant;
 
 final class PermissionPolicySeeder extends BasePermissionPolicySeeder
 {
+    use RequiresCurrentTenant;
+
     protected const string MODULE_NAME = TaggerPlugin::ID;
+
+    public function run(): void
+    {
+        $tenant = $this->currentTenant();
+
+        $this->seedPermissionPolicies($tenant->getKey());
+    }
 
     /**
      * @return list<string>
@@ -19,4 +29,5 @@ final class PermissionPolicySeeder extends BasePermissionPolicySeeder
     {
         return array_column(TaggerPolicyEnum::cases(), 'value');
     }
+
 }
