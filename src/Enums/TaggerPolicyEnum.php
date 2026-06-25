@@ -11,7 +11,7 @@ enum TaggerPolicyEnum: string
     case DELETE_ANY = 'delete-any-tagger';
     case FORCE_DELETE = 'force-delete-tagger';
     case FORCE_DELETE_ANY = 'force-delete-any-tagger';
-    case REORDER = 'reorder-product-category';
+    case REORDER = 'reorder-tagger';
     case REPLICATE = 'replicate-tagger';
     case RESTORE = 'restore-tagger';
     case RESTORE_ANY = 'restore-any-tagger';
