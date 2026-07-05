@@ -21,7 +21,7 @@ final class TaggerForm
             ->components([
                 TextInput::make('name')
                     ->afterStateUpdated(function (Livewire $livewire, Get $get, Set $set, ?string $old, ?string $state): void {
-                        $livewire->validateOnly("data.name");
+                        $livewire->validateOnly('data.name');
 
                         if (($get->string('slug', isNullable: true) ?? '') === Str::slug($old ?? '')) {
                             $set('slug', Str::slug($state));
@@ -46,7 +46,7 @@ final class TaggerForm
                     ),
 
                 TextInput::make('slug')
-                    ->afterStateUpdated(fn(Livewire $livewire) => $livewire->validateOnly("data.slug"))
+                    ->afterStateUpdated(fn(Livewire $livewire) => $livewire->validateOnly('data.slug'))
                     ->columnSpan(['lg' => 1])
                     ->helperText(__('vendra-tagger::attributes.slug_helper_text'))
                     ->label(__('vendra-tagger::attributes.slug'))
@@ -60,7 +60,7 @@ final class TaggerForm
                     ->label(__('vendra-tagger::attributes.slug')),
 
                 TextInput::make('type')
-                    ->afterStateUpdated(fn(Livewire $livewire) => $livewire->validateOnly("data.type"))
+                    ->afterStateUpdated(fn(Livewire $livewire) => $livewire->validateOnly('data.type'))
                     ->autofocus()
                     ->columnSpanFull()
                     ->label(__('vendra-tagger::attributes.type'))

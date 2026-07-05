@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-return  [
+return [
     'tagger'            => 'Tagger',
     'tagger_management' => 'Tag-Verwaltung',
 ];

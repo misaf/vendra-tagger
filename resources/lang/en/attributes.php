@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-return  [
+return [
     'created_at'       => 'Created At',
     'id'               => 'ID',
     'name'             => 'Name',
