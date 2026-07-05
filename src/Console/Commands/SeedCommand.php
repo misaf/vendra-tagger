@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Misaf\VendraTagger\Console\Commands;
 
+use Misaf\VendraSupport\Console\Commands\TenantSeedCommand;
 use Misaf\VendraTagger\Database\Seeders\PermissionPolicySeeder;
 use Misaf\VendraTagger\TaggerPlugin;
-use Misaf\VendraTenant\Console\Commands\TenantSeedCommand;
 
 final class SeedCommand extends TenantSeedCommand
 {

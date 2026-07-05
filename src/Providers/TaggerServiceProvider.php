@@ -6,6 +6,7 @@ namespace Misaf\VendraTagger\Providers;
 
 use Filament\Panel;
 use Illuminate\Foundation\Console\AboutCommand;
+use Misaf\VendraSupport\Support\TenantSeeders;
 use Misaf\VendraTagger\Console\Commands\SeedCommand;
 use Misaf\VendraTagger\TaggerPlugin;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
@@ -43,6 +44,8 @@ final class TaggerServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
+        $this->app->make(TenantSeeders::class)->register('vendra-tagger:seed', priority: 70);
+
         AboutCommand::add('Vendra Tagger', fn() => ['Version' => 'dev-master']);
     }
 }

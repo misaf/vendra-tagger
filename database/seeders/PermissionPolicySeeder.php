@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Misaf\VendraTagger\Database\Seeders;
 
+use Misaf\VendraSupport\Concerns\RequiresCurrentTenant;
 use Misaf\VendraSupport\Database\Seeders\PermissionPolicySeeder as BasePermissionPolicySeeder;
 use Misaf\VendraTagger\Enums\TaggerPolicyEnum;
 use Misaf\VendraTagger\TaggerPlugin;
-use Misaf\VendraTenant\Concerns\RequiresCurrentTenant;
 
 final class PermissionPolicySeeder extends BasePermissionPolicySeeder
 {

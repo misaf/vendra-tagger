@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Misaf\VendraTagger\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Hidden;
-use Misaf\VendraTenant\Traits\BelongsToTenant;
+use Misaf\VendraSupport\Traits\BelongsToTenant;
 use Spatie\Tags\Tag as SpatieTag;
 
 /**
