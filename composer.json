@@ -30,7 +30,6 @@
 		"illuminate/support": "^13.0",
 		"lara-zeus/spatie-translatable": "^2.0",
 		"misaf/vendra-support": "dev-master",
-		"misaf/vendra-user": "dev-master",
 		"misaf/filament-jalali": "^5.1",
 		"spatie/eloquent-sortable": "^5.0",
 		"spatie/laravel-package-tools": "^1.0"
@@ -63,8 +62,12 @@
 	"autoload": {
 		"psr-4": {
 			"Misaf\\VendraTagger\\": "src/",
+			"Misaf\\VendraTagger\\Database\\Seeders\\": "database/seeders/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
 			"Misaf\\VendraTagger\\Database\\Factories\\": "database/factories/",
-			"Misaf\\VendraTagger\\Database\\Seeders\\": "database/seeders/",
 			"Misaf\\VendraTagger\\Tests\\": "tests/"
 		}
 	},
