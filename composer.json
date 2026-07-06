@@ -46,7 +46,8 @@
 		"pestphp/pest-plugin-arch": "^4.0",
 		"pestphp/pest-plugin-laravel": "^4.0",
 		"pestphp/pest-plugin-profanity": "^4.0",
-		"pestphp/pest-plugin-type-coverage": "^4.0"
+		"pestphp/pest-plugin-type-coverage": "^4.0",
+		"phpstan/extension-installer": "^1.4"
 	},
 	"repositories": [
 		{
@@ -74,7 +75,8 @@
 	"config": {
 		"allow-plugins": {
 			"pestphp/pest-plugin": true,
-			"php-http/discovery": true
+			"php-http/discovery": true,
+			"phpstan/extension-installer": true
 		},
 		"optimize-autoloader": true,
 		"preferred-install": "dist",
