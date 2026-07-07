@@ -11,7 +11,7 @@ use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Unique;
 use Livewire\Component as Livewire;
-use Misaf\VendraTenant\Models\Tenant;
+use Misaf\VendraSupport\Support\TenantAwareness;
 
 final class TaggerForm
 {
@@ -35,7 +35,7 @@ final class TaggerForm
                     ->unique(
                         column: fn(Livewire $livewire) => 'name->' . $livewire->activeLocale,
                         modifyRuleUsing: function (Unique $rule, Get $get): void {
-                            $rule->where('tenant_id', Tenant::current()?->id);
+                            TenantAwareness::constrainUniqueRule($rule);
 
                             $type = $get->string('type', isNullable: true);
 
@@ -54,7 +54,7 @@ final class TaggerForm
                     ->unique(
                         column: fn(Livewire $livewire) => 'slug->' . $livewire->activeLocale,
                         modifyRuleUsing: function (Unique $rule): void {
-                            $rule->where('tenant_id', Tenant::current()?->id);
+                            TenantAwareness::constrainUniqueRule($rule);
                         },
                     )
                     ->label(__('vendra-tagger::attributes.slug')),
@@ -67,7 +67,7 @@ final class TaggerForm
                     ->live(onBlur: true)
                     ->unique(
                         modifyRuleUsing: function (Unique $rule): void {
-                            $rule->where('tenant_id', Tenant::current()?->id);
+                            TenantAwareness::constrainUniqueRule($rule);
                         },
                     ),
             ]);
