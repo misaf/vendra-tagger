@@ -1,6 +1,6 @@
 ---
 name: vendra-tagger-development
-description: "Use this skill when creating, modifying, reviewing, or testing the Vendra Tagger module in app-modules/vendra-tagger, or when creating future tagger-like Filament/domain modules. Trigger for `Tagger` models, vendra-tagger migrations, factories, seeders, policies, permission enums, Filament resources, clusters, forms, tables, relation managers, translations, media collections, plugin/service provider wiring, and module configuration."
+description: "Use this skill when creating, modifying, reviewing, or testing the Vendra Tagger module in packages/vendra-tagger, or when creating future tagger-like Filament/domain modules. Trigger for `Tagger` models, vendra-tagger migrations, factories, seeders, policies, permission enums, Filament resources, clusters, forms, tables, relation managers, translations, media collections, plugin/service provider wiring, and module configuration."
 ---
 
 # Vendra Tagger
@@ -13,7 +13,7 @@ Before code changes, use Laravel Boost `application-info` and `search-docs` for 
 
 ## Module Boundary
 
-Treat `app-modules/vendra-tagger` as the source of tagger domain behavior and Filament admin UI.
+Treat `packages/vendra-tagger` as the source of tagger domain behavior and Filament admin UI.
 
 - Use namespace `Misaf\VendraTagger`.
 - Keep domain models, factories, seeders, policies, observers, console commands, Filament classes, config, migrations, translations, and tests inside this module.
@@ -73,5 +73,5 @@ Prefer focused Pest tests in the module.
 - Add or update unit tests for model contracts, policy permission coverage, resolver-derived tenant awareness, navigation/config behavior, and translation parity.
 - Keep Pest architecture tests in `tests/ArchTest.php`: the `php`, `security`, and `laravel` presets, plus an expectation that the module stays tenant-agnostic, e.g. `arch()->expect('Misaf\VendraTagger')->not->toUse('Misaf\VendraTenant')`.
 - Add feature or Livewire tests when changing Filament behavior with meaningful user-visible effects.
-- Run module checks from the package when possible: `composer --working-dir=app-modules/vendra-tagger test` and `composer --working-dir=app-modules/vendra-tagger analyse`.
+- Run module checks from the package when possible: `composer --working-dir=packages/vendra-tagger test` and `composer --working-dir=packages/vendra-tagger analyse`.
 - If PHP files changed, run Pint for the touched code: `vendor/bin/pint --dirty --format agent` from the host app, or the module formatter if working only inside the package.
