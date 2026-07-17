@@ -10,13 +10,11 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\Column;
-use Filament\Tables\Columns\ColumnGroup;
-use Filament\Tables\Columns\Layout\Component as LayoutComponent;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\QueryBuilder;
 use Filament\Tables\Filters\QueryBuilder\Constraints\DateConstraint;
+use Filament\Tables\Filters\QueryBuilder\Constraints\NumberConstraint;
 use Filament\Tables\Filters\QueryBuilder\Constraints\TextConstraint;
 use Filament\Tables\Table;
 
@@ -24,13 +22,10 @@ final class TaggerTable
 {
     public static function configure(Table $table): Table
     {
-        /**
-         * @var array<int, Column|ColumnGroup|LayoutComponent> $columns
-         */
         $columns = [
             TextColumn::make('row')
                 ->label('#')
-                ->rowIndex(),
+                ->rowIndex()->sortable(),
 
             TextColumn::make('name')
                 ->alignStart()
@@ -53,7 +48,7 @@ final class TaggerTable
                 ->sinceTooltip()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true)
-                ->unless(
+                ->when(
                     app()->isLocale('fa'),
                     fn(TextColumn $column) => $column->jalaliDateTime('Y-m-d H:i', latinNumbers: true),
                     fn(TextColumn $column) => $column->dateTime('Y-m-d H:i')
@@ -66,7 +61,7 @@ final class TaggerTable
                 ->label(__('vendra-tagger::attributes.updated_at'))
                 ->sinceTooltip()
                 ->toggleable(isToggledHiddenByDefault: true)
-                ->unless(
+                ->when(
                     app()->isLocale('fa'),
                     fn(TextColumn $column) => $column->jalaliDateTime('Y-m-d H:i', latinNumbers: true),
                     fn(TextColumn $column) => $column->dateTime('Y-m-d H:i')
@@ -93,6 +88,8 @@ final class TaggerTable
 
                             DateConstraint::make('updated_at')
                                 ->label(__('vendra-tagger::attributes.updated_at')),
+
+                            NumberConstraint::make('position'),
                         ]),
                 ],
                 layout: FiltersLayout::AboveContentCollapsible,
@@ -111,7 +108,7 @@ final class TaggerTable
                     DeleteBulkAction::make(),
                 ]),
             ])
-            ->defaultSort(column: 'position', direction: 'desc')
+            ->defaultSort(column: 'id', direction: 'desc')
             ->reorderable(column: 'position', direction: 'desc');
     }
 }
